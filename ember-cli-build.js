@@ -35,6 +35,7 @@ module.exports = function(defaults) {
   app.import('vendor/fontello/font/fontello.woff', {
     destDir: 'font'
   });
+  app.import('bower_components/moment/moment.js');
 
   return app.toTree();
 };

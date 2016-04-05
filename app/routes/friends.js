@@ -6,7 +6,7 @@ export default Ember.Route.extend({
       if (confirm("Are you sure you want to delete this record?")) {
         friend.destroyRecord().then(() => {
           this.transitionTo('friends.index');
-        })
+        });
       }
       return false;
     }

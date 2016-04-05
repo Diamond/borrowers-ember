@@ -1,11 +1,14 @@
 <h1>Friends Index</h1>
 <h2>Total friends: {{model.length}}</h2>
 
-<table>
+<table class="primary">
   <thead>
     <tr>
       <th>
         Name
+      </th>
+      <th>
+        Articles
       </th>
       <th></th>
     </tr>
@@ -14,7 +17,10 @@
     {{#each model as |friend|}}
     <tr>
       <td>
-        {{link-to friend.fullName 'friends.show' friend}}
+        {{link-to friend.fullName 'articles' friend}}
+      </td>
+      <td>
+        {{friend.totalArticles}}
       </td>
       <td>
         <a href="#" {{action "delete" friend}}>Delete</a>

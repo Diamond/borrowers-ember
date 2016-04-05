@@ -2,14 +2,18 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.createRecord('friend');
+    return this.modelFor('friends/show').get('articles');
   },
   resetController(controller, isExiting) {
     if (isExiting) {
       let model = controller.get('model');
-      if (model.get('isNew')) {
-        model.destroyRecord();
-      }
+      model.rollbackAttributes();
+    }
+  },
+  actions: {
+    save(model) {
+      model.save();
+      return false;
     }
   }
 });
